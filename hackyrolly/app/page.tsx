@@ -9,12 +9,13 @@ import results from "../pages/api/result.json";
 export default function Home() {
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center p-4">
         <input
           type="text"
-          placeholder="What are you looking for?"
-          className="input w-full max-w-xs w-screen"
+          placeholder="Find item..."
+          className=" w-11/12 md:w-8/12 xl:w-3/4 h-auto p-3 rounded-3xl bg-white"
         />
+        <button className="btn btn-active btn-secondary absolute right-20 rounded-3xl">Search</button>
       </div>
 
 
