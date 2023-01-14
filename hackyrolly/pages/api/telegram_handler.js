@@ -16,7 +16,6 @@ export default async (req, res) => {
     const data = {
       text: req.body.message,
     };
-    console.log(req.body.message);
     const docRef = await addDoc(collection(db, "Messages"), data);
   }
 
