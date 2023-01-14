@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import results from "../pages/api/result.json";
 
+
 export default function Home() {
   return (
     <div>
@@ -15,6 +16,7 @@ export default function Home() {
           className="input w-full max-w-xs w-screen"
         />
       </div>
+
 
       <div className="grid grid-cols-3 gap-3 p-3">
         {results.messages.map((item) => (
