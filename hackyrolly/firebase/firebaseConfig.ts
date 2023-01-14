@@ -2,9 +2,12 @@
 // // import "firebase/auth";
 // import { getFirestore } from "firebase/firestore";
 
-import firebase from 'firebase/compat/app';
+// import firebase from 'firebase/compat/app';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 // import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+// import 'firebase/compat/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -15,20 +18,5 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-export const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-// Use these for db & auth
-export 
-
-
-const db = firebaseApp.firestore();
-
-
-// export const app = initializeApp(firebaseConfig);
-// export const database = getFirestore(app);
-
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(clientCredentials);
-// }
-
-// export default firebaseConfig;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
