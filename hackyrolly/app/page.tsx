@@ -10,13 +10,14 @@ export default function Home() {
   return (
     <div>
       <div className="flex justify-center p-4">
-        <input
+        <input 
           type="text"
           placeholder="Find item..."
-          className=" w-11/12 md:w-8/12 xl:w-3/4 h-auto p-3 rounded-3xl bg-white"
+          className=" w-11/12 md:w-8/12 xl:w-3/4 h-auto p-3 rounded-3xl bg-white text-black"
         />
         <button className="btn btn-secondary absolute right-20 rounded-3xl bg-sky-500 border-transparent hover:bg-sky-500 hover:border-transparent">Search</button>
       </div>
+
 
 <div className="flex justify-center">
 <div className="grid grid-cols-3 gap-3"> {/* p-3  pl-20 pr-7*/}

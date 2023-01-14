@@ -15,14 +15,12 @@ const month = dateObj.getMonth();
 const date2 = dateObj.getDate();
 date = date2 + "." + month + "." + year;
 
-
   return (
     <div className="card w-96 h-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co"> {/* bg-black*/}
       <div className="card-body">
        
         <h2 className="card-title">
-         
-        <a href = "'https://t.me/' + {from}">{from}</a> {/* {from}*/}
+        {from}
           
           <div className="badge badge-secondary  bg-sky-500 border-transparent hover:bg-sky-500 hover:border-transparent">LOST</div>
         </h2>
