@@ -4,8 +4,44 @@ import SmallCard from "@/components/SmallCard";
 import Image from "next/image";
 import styles from "./page.module.css";
 import results from "../pages/api/result.json";
+import firebase from "firebase/app";
+import "firebase/firestore";
 
-export default function Home() {
+import { db } from "../firebase/firebaseConfig";
+import { collection, query, where, getDocs } from "firebase/firestore";
+
+// // const q = query(collection(db, "Messages"), where("capital", "==", true));
+
+// // const querySnapshot = await getDocs(q);
+
+// const querySnapshot = await getDocs(collection(db, "Messages"));
+
+// querySnapshot.forEach((doc) => {
+//   // doc.data() is never undefined for query doc snapshots
+//   console.log(doc.id, " => ", doc.data());
+// });
+
+// async function getData() {
+//   const querySnapshot = await getDocs(collection(db, "Messages"));
+//   const products = querySnapshot.docs.map((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     // console.log(doc.id, " => ", doc.data().text.text);
+//     doc.data();
+//   });
+
+//   return products;
+// }
+
+export default async function Home() {
+  // const data = await getData();
+
+  const querySnapshot = await getDocs(collection(db, "Messages"));
+  // const products = querySnapshot.forEach((doc) => {
+  //   // doc.data() is never undefined for query doc snapshots
+  //   console.log(doc.id, " => ", doc.data().text.chat.id);
+  //   // doc.data();
+  // });
+
   return (
     <div>
       <div className="flex justify-center p-4">
@@ -31,10 +67,41 @@ export default function Home() {
         <option>Others</option>
       </select> */}
 
+      {/* <button onClick={() => console.log(data.text.text)}> products.id</button> */}
+
       <div className="flex justify-center">
         <div className="grid grid-cols-4 gap-3">
           {" "}
-          {results.messages.map((item) => (
+          {querySnapshot.docs.map((doc) => (
+            <SmallCard
+              key={doc.data().text.message_id}
+              from={doc.data().text.from.first_name || "NA"}
+              message={doc.data().text.text.toString()}
+              date={doc.data().text.date}
+              from_id={doc.data().text.from.username || "NA"}
+              status={"FOUND"}
+            />
+          ))}
+          {/* {results.messages.map((item) => ( */}
+          {/* {data.map((x) => (
+            <SmallCard
+              key={x.text}
+              from={x.from.first_name || "NA"}
+              message={x.text.toString()}
+              date={x.chat.date.toString()}
+              text={x.text.toString()}
+              from_id={x.from.id || "NA"}
+              status={"FOUND"}
+              // status={
+              //   item.text.toString().includes("found")
+              //     ? "FOUND"
+              //     : item.text.toString().includes("lost")
+              //     ? "LOST"
+              //     : ""
+              // }
+            />
+          ))} */}
+          {/* {results.messages.map((item) => (
             <SmallCard
               key={item.id}
               from={item.from || "NA"}
@@ -50,9 +117,36 @@ export default function Home() {
                   : ""
               }
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
   );
 }
+
+// export async function getServerSideProps() {
+//   // firebase.initializeApp({
+//   //   apiKey: "YOUR_API_KEY",
+//   //   authDomain: "YOUR_AUTH_DOMAIN",
+//   //   projectId: "YOUR_PROJECT_ID",
+//   // });
+
+//   // const productsRef = db.collection("messages");
+//   // const snapshot = await productsRef.get();
+//   // const products = snapshot.docs.map((doc) => ({
+//   //   id: doc.id,
+//   //   ...doc.data(),
+//   // }));
+
+//   const querySnapshot = await getDocs(collection(db, "Messages"));
+//   const products = querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data());
+//   });
+
+//   return {
+//     props: {
+//       products,
+//     },
+//   };
+// }

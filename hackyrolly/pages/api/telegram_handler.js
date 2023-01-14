@@ -1,5 +1,5 @@
 import { db } from "../../firebase/firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 
 export default async (req, res) => {
   const tgbot = process.env.NEXT_TELEGRAM_TOKEN;
@@ -15,6 +15,7 @@ export default async (req, res) => {
       text: req.body.message,
     };
     const docRef = await addDoc(collection(db, "Messages"), data);
+    // await setDoc(doc(db, "Messages", data.text.message_id), data);
   }
 
   res.status(200).send("ok");

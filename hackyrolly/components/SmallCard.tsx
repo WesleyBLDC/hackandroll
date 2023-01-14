@@ -1,23 +1,15 @@
-import React from "react";
+import React, { valueOf } from "react";
 
 interface CreateCardProps {
   from: string;
   message: string;
-  text: string;
   date: string;
   from_id: string;
   status: string;
 }
 
-function SmallCard({
-  from,
-  message,
-  text,
-  date,
-  from_id,
-  status,
-}: CreateCardProps) {
-  const dateObj = new Date(date);
+function SmallCard({ from, message, date, from_id, status }: CreateCardProps) {
+  const dateObj = new Date(parseFloat(date) * 1000);
   const year = dateObj.getFullYear();
 
   const month = dateObj.getMonth();
@@ -45,9 +37,7 @@ function SmallCard({
         <div>
           <div className="badge badge-outline">{date}</div>
         </div>
-        <p>
-          {message} {text}
-        </p>
+        <p>{message}</p>
         {/* <div className="card-actions justify-end">
           <div className="badge badge-outline">{from_id}</div>
         </div> */}
