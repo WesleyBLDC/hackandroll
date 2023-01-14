@@ -14,7 +14,25 @@ export default async (req, res) => {
     const data = {
       text: req.body.message,
     };
-    const docRef = await addDoc(collection(db, "Messages"), data);
+
+    function criteria(item) {
+      const count = item.split(",");
+      if (count.count() == 5 && count[1] == "," && count[3] == ",") {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    if (criteria(data.text.text?.toString())) {
+      // Successfully added
+      const docRef = await addDoc(collection(db, "Messages"), data);
+    } else {
+      // Rejected
+      const msg =
+        "Please try again, please use the following format [Found/Lost, Item Lost, Location]";
+    }
+
     // await setDoc(doc(db, "Messages", data.text.message_id), data);
   }
 
