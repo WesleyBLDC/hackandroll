@@ -10,7 +10,7 @@ interface CreateStudentProps {
 
 function SmallCard({ from, message, text, date, from_id }: CreateStudentProps) {
   return (
-    <div className="card w-96 bg-black border border-yellow-700 shadow-xl">
+    <div className="card w-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           Reported by: {from}
