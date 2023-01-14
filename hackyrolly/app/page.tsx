@@ -1,7 +1,9 @@
 // page.tsx
 
+import SmallCard from "@/components/SmallCard";
 import Image from "next/image";
 import styles from "./page.module.css";
+import results from "../pages/api/result.json";
 
 
 export default function Home() {
@@ -15,19 +17,33 @@ export default function Home() {
         />
       </div>
 
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
 
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
-          </div>
-        </div>
+      <div className="grid grid-cols-3 gap-3 p-3">
+        {results.messages.map((item) => (
+          <SmallCard
+            key={item.id}
+            from={item.from || "NA"}
+            message={item.text.toString()}
+            text={item.text.toString()}
+            date={item.date.toString()}
+            from_id={item.from_id || "NA"}
+          />
+        ))}
+
+        {/* <SmallCard
+          from="test"
+          message={"test"}
+          text={"test"}
+          date={"test"}
+          from_id={"test"}
+        />
+        <SmallCard
+          from="test"
+          message={"test"}
+          text={"test"}
+          date={"test"}
+          from_id={"test"}
+        /> */}
       </div>
     </div>
   );
