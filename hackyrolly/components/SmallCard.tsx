@@ -19,9 +19,11 @@ function SmallCard({
 }: CreateCardProps) {
   const dateObj = new Date(date);
   const year = dateObj.getFullYear();
+
   const month = dateObj.getMonth();
   const date2 = dateObj.getDate();
   date = date2 + "." + month + "." + year;
+
 
   return (
     <div className="card w-96 h-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co">
@@ -29,6 +31,7 @@ function SmallCard({
       {/* bg-black*/}
       <div className="card-body">
         <h2 className="card-title">
+
           <a href="'https://t.me/' + {from}">{from}</a> {/* {from}*/}
           {status == "FOUND" ? (
             <div className="badge badge-secondary bg-lime-600 border-transparent">
@@ -39,6 +42,7 @@ function SmallCard({
               {status}
             </div>
           )}
+
         </h2>
 
         <div>
