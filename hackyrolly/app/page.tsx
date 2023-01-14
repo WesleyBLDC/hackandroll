@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+
 export default function Home() {
   return (
     <div>
@@ -20,6 +21,7 @@ export default function Home() {
             Shoes!
             <div className="badge badge-secondary">NEW</div>
           </h2>
+
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
             <div className="badge badge-outline">Fashion</div>
