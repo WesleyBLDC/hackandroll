@@ -30,9 +30,15 @@ function SmallCard({
       <div className="card-body">
         <h2 className="card-title">
           <a href="'https://t.me/' + {from}">{from}</a> {/* {from}*/}
-          <div className="badge badge-secondary  bg-sky-500 border-transparent">
-            {status}
-          </div>
+          {status == "FOUND" ? (
+            <div className="badge badge-secondary bg-lime-600 border-transparent">
+              {status}
+            </div>
+          ) : (
+            <div className="badge badge-secondary  bg-sky-500 border-transparent">
+              {status}
+            </div>
+          )}
         </h2>
 
         <div>

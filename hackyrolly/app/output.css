@@ -2875,6 +2875,11 @@ html {
   background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
+.bg-lime-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(101 163 13 / var(--tw-bg-opacity));
+}
+
 .p-4 {
   padding: 1rem;
 }
