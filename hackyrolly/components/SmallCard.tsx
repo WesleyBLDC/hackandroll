@@ -24,26 +24,22 @@ function SmallCard({
   const date2 = dateObj.getDate();
   date = date2 + "." + month + "." + year;
 
-
   return (
-
-    <div className="card w-96 h-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co">
+    <div className="card w-72 h-72 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co">
       {" "}
       {/* bg-black*/}
       <div className="card-body">
         <h2 className="card-title">
-
-          <a href="'https://t.me/' + {from}">{from}</a> {/* {from}*/}
+          <a>{from}</a>
           {status == "FOUND" ? (
             <div className="badge badge-secondary bg-lime-600 border-transparent">
               {status}
             </div>
           ) : (
-            <div className="badge badge-secondary  bg-sky-500 border-transparent">
+            <div className="badge badge-secondary  bg-red-500 border-transparent">
               {status}
             </div>
           )}
-
         </h2>
 
         <div>
@@ -52,9 +48,9 @@ function SmallCard({
         <p>
           {message} {text}
         </p>
-        <div className="card-actions justify-end">
+        {/* <div className="card-actions justify-end">
           <div className="badge badge-outline">{from_id}</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

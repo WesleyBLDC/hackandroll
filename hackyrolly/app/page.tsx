@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <div className="flex justify-center p-4">
-        <input 
+        <input
           type="text"
           placeholder="Find item..."
           className=" w-11/12 md:w-8/12 xl:w-3/4 h-auto p-3 rounded-3xl bg-white text-black"
@@ -18,27 +18,22 @@ export default function Home() {
         <button className="btn btn-secondary absolute right-20 rounded-3xl bg-sky-500 border-transparent hover:bg-sky-500 hover:border-transparent">
           Search
         </button>
-
       </div>
-
+      {/* 
       <select className="select w-30 justify-items-center max-w-xs absolute left-8 top-20">
-          <option disabled selected>Filter</option>
-          <option>Electronics</option>
-          <option>Wallet</option>
-          <option>Cards</option>
-          <option>Clothing</option>
-          <option>Others</option>
-      </select>
-
-
-<div className="flex justify-center">
-<div className="grid grid-cols-3 gap-3"> {/* p-3  pl-20 pr-7*/}
-
+        <option disabled selected>
+          Filter
+        </option>
+        <option>Electronics</option>
+        <option>Wallet</option>
+        <option>Cards</option>
+        <option>Clothing</option>
+        <option>Others</option>
+      </select> */}
 
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-4 gap-3">
           {" "}
-          {/* p-3  pl-20 pr-7*/}
           {results.messages.map((item) => (
             <SmallCard
               key={item.id}
@@ -57,12 +52,7 @@ export default function Home() {
             />
           ))}
         </div>
-
-
       </div>
-</div>
-      
     </div>
   );
 }
-
