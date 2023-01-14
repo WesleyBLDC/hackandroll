@@ -2163,8 +2163,12 @@ html {
   flex-shrink: 0;
   cursor: pointer;
   -webkit-user-select: none;
+
+     -moz-user-select: none;
           user-select: none;
   -webkit-appearance: none;
+     -moz-appearance: none;
+
           appearance: none;
   height: 3rem;
   padding-left: 1rem;
@@ -2179,9 +2183,11 @@ html {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
   font-weight: 600;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: var(--rounded-btn, 0.5rem);
@@ -2895,6 +2901,9 @@ html {
 
 .menu li.disabled > * {
   -webkit-user-select: none;
+
+     -moz-user-select: none;
+
           user-select: none;
   color: hsl(var(--bc) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
@@ -3043,6 +3052,39 @@ html {
             transform: scale(1);
     opacity: 1;
   }
+}
+
+.select:focus {
+  outline: 2px solid hsla(var(--bc) / 0.2);
+  outline-offset: 2px;
+}
+
+.select-disabled,
+  .select[disabled] {
+  cursor: not-allowed;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 0.2;
+}
+
+.select-disabled::-moz-placeholder, .select[disabled]::-moz-placeholder {
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
+
+.select-disabled::placeholder,
+  .select[disabled]::placeholder {
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
+
+.select-multiple,
+  .select[multiple],
+  .select[size].select:not([size="1"]) {
+  background-image: none;
+  padding-right: 1rem;
 }
 
 @keyframes toast-pop {
@@ -3227,33 +3269,43 @@ html {
   right: 0.5rem;
 }
 
-.top-3 {
-  top: 0.75rem;
+
+
+.top-0 {
+  top: 0px;
 }
 
-.left-2 {
-  left: 0.5rem;
+.left-0 {
+  left: 0px;
+}
+
+.left-4 {
+  left: 1rem;
+
 }
 
 .top-10 {
   top: 2.5rem;
 }
 
-.top-20 {
-  top: 5rem;
+
+.top-3 {
+  top: 0.75rem;
 }
 
-.left-5 {
-  left: 1.25rem;
+.top-5 {
+  top: 1.25rem;
 }
 
-.left-4 {
-  left: 1rem;
+.top-12 {
+  top: 3rem;
 }
 
-.left-8 {
-  left: 2rem;
+.left-3 {
+  left: 0.75rem;
 }
+
+
 
 .flex {
   display: flex;
@@ -3279,20 +3331,21 @@ html {
   width: 24rem;
 }
 
-.w-60 {
-  width: 15rem;
-}
 
-.w-64 {
-  width: 16rem;
-}
-
-.w-40 {
-  width: 10rem;
+.w-16 {
+  width: 4rem;
 }
 
 .w-20 {
   width: 5rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-xs {
