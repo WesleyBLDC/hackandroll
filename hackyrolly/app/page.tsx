@@ -76,13 +76,13 @@ export default async function Home() {
             <SmallCard
               key={doc.data().text.message_id}
               from={doc.data().text.from.first_name || "NA"}
-              message={doc.data().text.text.toString()}
+              message={doc.data().text.text?.toString() || "NA"}
               date={doc.data().text.date}
               from_id={doc.data().text.from.username || "NA"}
               status={
-                doc.data().text.text.toString().includes("Found")
+                doc.data().text.text?.toString().includes("Found")
                   ? "FOUND"
-                  : doc.data().text.text.toString().includes("Lost")
+                  : doc.data().text.text?.toString().includes("Lost")
                   ? "LOST"
                   : ""
               }
