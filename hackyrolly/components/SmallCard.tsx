@@ -9,18 +9,32 @@ interface CreateStudentProps {
 }
 
 function SmallCard({ from, message, text, date, from_id }: CreateStudentProps) {
+  const dateObj = new Date(date);
+  const year = dateObj.getFullYear();
+const month = dateObj.getMonth();
+const date2 = dateObj.getDate();
+date = date2 + "." + month + "." + year;
+
+
   return (
-    <div className="card w-96 bg-black border border-yellow-700 shadow-xl">
+    <div className="card w-96 h-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co"> {/* bg-black*/}
       <div className="card-body">
+       
         <h2 className="card-title">
-          Reported by: {from}
-          <div className="badge badge-secondary">LOST</div>
+         
+        <a href = "'https://t.me/' + {from}">{from}</a> {/* {from}*/}
+          
+          <div className="badge badge-secondary  bg-sky-500 border-transparent hover:bg-sky-500 hover:border-transparent">LOST</div>
         </h2>
-        <p>
-          found at AS3-03-14 after FAS1101 tutorial at 12pm {message} {text}
+
+        <div>
+        <div className="badge badge-outline">{date}</div>
+
+        </div>
+        <p >
+          {message} {text}
         </p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">{date}</div>
           <div className="badge badge-outline">{from_id}</div>
         </div>
       </div>
