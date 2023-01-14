@@ -1,4 +1,4 @@
-import React, { valueOf } from "react";
+import { BsTelegram } from "react-icons/bs";
 
 interface CreateCardProps {
   from: string;
@@ -16,6 +16,8 @@ function SmallCard({ from, message, date, from_id, status }: CreateCardProps) {
   const date2 = dateObj.getDate();
   date = date2 + "." + month + "." + year;
 
+  const link = "https://t.me/" + from_id;
+
   return (
     <div className="card w-72 h-72 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co">
       {" "}
@@ -27,8 +29,12 @@ function SmallCard({ from, message, date, from_id, status }: CreateCardProps) {
             <div className="badge badge-secondary bg-lime-600 border-transparent">
               {status}
             </div>
-          ) : (
+          ) : status == "LOST" ? (
             <div className="badge badge-secondary  bg-red-500 border-transparent">
+              {status}
+            </div>
+          ) : (
+            <div className="badge badge-secondary  bg-white border-transparent">
               {status}
             </div>
           )}
@@ -38,9 +44,15 @@ function SmallCard({ from, message, date, from_id, status }: CreateCardProps) {
           <div className="badge badge-outline">{date}</div>
         </div>
         <p>{message}</p>
-        {/* <div className="card-actions justify-end">
-          <div className="badge badge-outline">{from_id}</div>
-        </div> */}
+        <a href={link}>
+          <div className="card-actions justify-end">
+            <div className="badge badge-outline">{from_id}</div>
+            <button>
+              {" "}
+              <BsTelegram />{" "}
+            </button>
+          </div>
+        </a>
       </div>
     </div>
   );

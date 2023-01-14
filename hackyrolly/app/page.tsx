@@ -44,7 +44,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="flex justify-center p-4">
+      {/* <div className="flex justify-center p-4 bg-base-100">
         <input
           type="text"
           placeholder="Find item..."
@@ -54,7 +54,7 @@ export default async function Home() {
         <button className="btn btn-secondary absolute right-20 rounded-3xl bg-sky-500 border-transparent hover:bg-sky-500 hover:border-transparent">
           Search
         </button>
-      </div>
+      </div> */}
       {/* 
       <select className="select w-30 justify-items-center max-w-xs absolute left-8 top-20">
         <option disabled selected>
@@ -69,7 +69,7 @@ export default async function Home() {
 
       {/* <button onClick={() => console.log(data.text.text)}> products.id</button> */}
 
-      <div className="flex justify-center">
+      <div className="flex justify-center bg-base-100 pt-2">
         <div className="grid grid-cols-4 gap-3">
           {" "}
           {querySnapshot.docs.map((doc) => (
@@ -79,7 +79,13 @@ export default async function Home() {
               message={doc.data().text.text.toString()}
               date={doc.data().text.date}
               from_id={doc.data().text.from.username || "NA"}
-              status={"FOUND"}
+              status={
+                doc.data().text.text.toString().includes("Found")
+                  ? "FOUND"
+                  : doc.data().text.text.toString().includes("Lost")
+                  ? "LOST"
+                  : ""
+              }
             />
           ))}
           {/* {results.messages.map((item) => ( */}
