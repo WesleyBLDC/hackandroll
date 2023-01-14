@@ -17,7 +17,18 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-3 gap-3 p-3">
-        <SmallCard
+        {results.messages.map((item) => (
+          <SmallCard
+            key={item.id}
+            from={item.from || "NA"}
+            message={item.text.toString()}
+            text={item.text.toString()}
+            date={item.date.toString()}
+            from_id={item.from_id || "NA"}
+          />
+        ))}
+
+        {/* <SmallCard
           from="test"
           message={"test"}
           text={"test"}
@@ -30,7 +41,7 @@ export default function Home() {
           text={"test"}
           date={"test"}
           from_id={"test"}
-        />
+        /> */}
       </div>
     </div>
   );
