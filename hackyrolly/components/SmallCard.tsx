@@ -26,6 +26,7 @@ function SmallCard({
 
 
   return (
+
     <div className="card w-96 h-96 bg-zinc-100 text-black border border-yellow-700 shadow-xl overflow-auto co">
       {" "}
       {/* bg-black*/}
