@@ -1,21 +1,48 @@
 // page.tsx
 
+import SmallCard from "@/components/SmallCard";
 import Image from "next/image";
 import styles from "./page.module.css";
+import results from "../pages/api/result.json";
 
 export default function Home() {
   return (
-    <div className="w-full bg-black">
-      <main className="flex justify-center items-center m-auto h-screen flex-col">
-        <div className="text-8xl ">
-          Welcome to <a href="https://nextjs.org">Next.js 13!</a>
-        </div>
-        <div className="text-4xl my-10 ">
-          This is a Tailwind Example with Next.js 13
-        </div>
-      </main>
+    <div>
+      <div className="flex justify-center">
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          className="input w-full max-w-xs w-screen"
+        />
+      </div>
 
-      <button className="btn w-64 rounded-full">Button</button>
+      <div className="grid grid-cols-3 gap-3 p-3">
+        {results.messages.map((item) => (
+          <SmallCard
+            key={item.id}
+            from={item.from || "NA"}
+            message={item.text.toString()}
+            text={item.text.toString()}
+            date={item.date.toString()}
+            from_id={item.from_id || "NA"}
+          />
+        ))}
+
+        {/* <SmallCard
+          from="test"
+          message={"test"}
+          text={"test"}
+          date={"test"}
+          from_id={"test"}
+        />
+        <SmallCard
+          from="test"
+          message={"test"}
+          text={"test"}
+          date={"test"}
+          from_id={"test"}
+        /> */}
+      </div>
     </div>
   );
 }
