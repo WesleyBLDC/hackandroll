@@ -1,4 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { db } from './firebase/firebaseConfig';
+// import {collection} from 'firebase/firestore';
+
 export default async (req, res) => {
   const tgbot = process.env.NEXT_TELEGRAM_TOKEN;
 
@@ -9,8 +12,17 @@ export default async (req, res) => {
       `https://api.telegram.org/bot${tgbot}/sendMessage?chat_id=${req.body.message.chat.id}&text=${message}&parse_mode=HTML`
     );
   } else {
+    const data = {
+        text:  req.body.message.text
+    }
+    const id = req.body.message.date
+
     console.log(req.body.message.text);
+    const upload = await db.collelction('Messages').doc(id).set(data);
+    
   }
+  res.status(200).send('ok');
+};
 
 
     // const data = await fetch(
@@ -41,5 +53,3 @@ export default async (req, res) => {
   //   );
   // }
   
-  res.status(200).send('ok');
-};
