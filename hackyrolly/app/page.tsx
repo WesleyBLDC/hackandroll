@@ -5,17 +5,28 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="w-full bg-black">
-      <main className="flex justify-center items-center m-auto h-screen flex-col">
-        <div className="text-8xl ">
-          Welcome to <a href="https://nextjs.org">Next.js 13!</a>
-        </div>
-        <div className="text-4xl my-10 ">
-          This is a Tailwind Example with Next.js 13
-        </div>
-      </main>
+    <div>
+      <div className="flex justify-center">
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          className="input w-full max-w-xs w-screen"
+        />
+      </div>
 
-      <button className="btn w-64 rounded-full">Button</button>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title">
+            Shoes!
+            <div className="badge badge-secondary">NEW</div>
+          </h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div className="card-actions justify-end">
+            <div className="badge badge-outline">Fashion</div>
+            <div className="badge badge-outline">Products</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
