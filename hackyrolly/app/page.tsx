@@ -10,37 +10,10 @@ import "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-// // const q = query(collection(db, "Messages"), where("capital", "==", true));
-
-// // const querySnapshot = await getDocs(q);
-
-// const querySnapshot = await getDocs(collection(db, "Messages"));
-
-// querySnapshot.forEach((doc) => {
-//   // doc.data() is never undefined for query doc snapshots
-//   console.log(doc.id, " => ", doc.data());
-// });
-
-// async function getData() {
-//   const querySnapshot = await getDocs(collection(db, "Messages"));
-//   const products = querySnapshot.docs.map((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     // console.log(doc.id, " => ", doc.data().text.text);
-//     doc.data();
-//   });
-
-//   return products;
-// }
-
 export default async function Home() {
   // const data = await getData();
 
   const querySnapshot = await getDocs(collection(db, "Messages"));
-  // const products = querySnapshot.forEach((doc) => {
-  //   // doc.data() is never undefined for query doc snapshots
-  //   console.log(doc.id, " => ", doc.data().text.chat.id);
-  //   // doc.data();
-  // });
 
   return (
     <div>
@@ -66,8 +39,6 @@ export default async function Home() {
         <option>Clothing</option>
         <option>Others</option>
       </select> */}
-
-      {/* <button onClick={() => console.log(data.text.text)}> products.id</button> */}
 
       <div className="flex justify-center bg-base-100 pt-2">
         <div className="grid grid-cols-4 gap-3">
