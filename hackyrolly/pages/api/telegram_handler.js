@@ -32,8 +32,11 @@ export default async (req, res) => {
 
       const result = querySnapshot.docs.filter((curr) => {
         const other = curr.data().text.text?.toString().split(",");
-        item[0] == other[0];
+        original[0] == other[0];
       });
+
+      //same keyword => result list, + 1 item from original 
+      result.push(original);
 
       if (result.count > 0) {
         if (original[0].contains("found")) {
